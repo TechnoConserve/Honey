@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - SECRET_KEY=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+      - POSTGRES_DB=test
+
+  django:
+    environment:
+      - SECRET_KEY=test
+      - IP_ADDR=localhost
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_USER=test
+      - POSTGRES_DB=test
+
+  nginx:
+    environment:
+    - IP_ADDR=localhost
+
+    ports:
+      - "8000:80"
